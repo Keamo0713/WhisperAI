@@ -1,0 +1,48 @@
+/* Stylish Confessions Table */
+.confessions-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    margin-top: 20px;
+}
+
+    .confessions-table thead {
+        background-color: #258cfb;
+        color: #fff;
+    }
+
+    .confessions-table th, .confessions-table td {
+        padding: 16px;
+        text-align: left;
+        border-bottom: 1px solid #eee;
+    }
+
+    .confessions-table tr:last-child td {
+        border-bottom: none;
+    }
+
+    .confessions-table tbody tr:hover {
+        background-color: #f6f9fc;
+    }
+
+/* Rounded Fancy Buttons */
+.btn-custom {
+    background-color: #258cfb;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+}
+
+    .btn-custom:hover {
+        background-color: #1a6ed8;
+    }

@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Submit Confession";
+}
+
+<h2>Submit a Confession</h2>
+
+<form method="post" asp-action="Submit">
+    <div class="mb-3">
+        <label for="text" class="form-label">Your Confession</label>
+        <textarea class="form-control" id="text" name="text" rows="5" required>
+    @(
+        ViewBag.Text 
+        ?? (Context.Request.Method == "POST" && Context.Request.HasFormContentType
+            ? Context.Request.Form["text"].ToString()
+            : "")
+    )
+</textarea>
+
+
+        @if (ViewData.ModelState.ContainsKey("Text") && ViewData.ModelState["Text"].Errors.Count > 0)
+        {
+            <span class="text-danger">@ViewData.ModelState["Text"].Errors[0].ErrorMessage</span>
+        }
+    </div>
+    <button type="submit" class="btn btn-dark">Submit</button>
+</form>

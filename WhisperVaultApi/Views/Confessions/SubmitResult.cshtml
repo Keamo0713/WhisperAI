@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "AI Counsel";
+}
+
+<div class="text-center mt-5">
+    <h2>🧠 AI's Response</h2>
+    <p class="lead">@ViewBag.AiResponse</p>
+
+    <div class="d-flex flex-column align-items-center mt-4 gap-2">
+        <!-- Release Button -->
+        <form asp-action="ReleaseAfterAdvice" method="post" class="w-100" style="max-width: 320px;">
+            <input type="hidden" name="text" value="@ViewBag.Text" />
+            <button type="submit" class="btn btn-dark rounded-pill w-100">Release Confession Anonymously</button>
+        </form>
+
+        <!-- Edit Button -->
+        <a asp-controller="Confessions" asp-action="Submit" class="btn btn-dark rounded-pill w-100" style="max-width: 320px;">
+            Edit and Try Again
+        </a>
+
+        <!-- See Released Confessions Button -->
+        <a asp-controller="Confessions" asp-action="Index" class="btn btn-dark rounded-pill w-100" style="max-width: 320px;">
+            See Released Confessions
+        </a>
+    </div>
+</div>

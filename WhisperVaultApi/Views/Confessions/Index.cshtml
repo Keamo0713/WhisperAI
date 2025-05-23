@@ -1,0 +1,32 @@
+﻿@model IEnumerable<WhisperVaultApi.Models.Confession>
+
+@{
+    ViewData["Title"] = "Anonymous Confessions";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (!Model.Any())
+{
+    <p>No confessions have been released yet.</p>
+}
+else
+{
+    <table class="table table-striped table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Confession</th>
+                <th>Submitted At</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var confession in Model)
+            {
+                <tr>
+                    <td>@confession.Text</td>
+                    <td>@confession.SubmittedAt.ToLocalTime().ToString("g")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

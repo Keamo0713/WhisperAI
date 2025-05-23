@@ -1,0 +1,28 @@
+﻿@model IEnumerable<WhisperVaultApi.Models.Confession>
+
+@{
+    ViewData["Title"] = "Vault";
+}
+
+<h2 class="text-center mt-4">🌌 Anonymous Vault</h2>
+
+@if (!Model.Any())
+{
+    <p class="text-center">No confessions have been released yet.</p>
+}
+else
+{
+    <div class="mt-4">
+        @foreach (var confession in Model)
+        {
+            <div class="card my-3 p-3 shadow-sm">
+                <blockquote class="mb-0">
+                    <p>@confession.Text</p>
+                    <footer class="blockquote-footer text-muted mt-2">
+                        Released @confession.SubmittedAt.ToLocalTime().ToString("f")
+                    </footer>
+                </blockquote>
+            </div>
+        }
+    </div>
+}
